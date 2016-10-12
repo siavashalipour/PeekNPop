@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="txc-7C-vj6">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="A6p-8E-Gi9">
+            <objects>
+                <navigationController id="txc-7C-vj6" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="8og-m5-o7w">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="mxT-hv-0Ch" kind="relationship" relationship="rootViewController" id="yEx-Ta-FFH"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dMw-o4-YDH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-329" y="627"/>
+        </scene>
+        <!--3D touch - Peek Pop Tutorial-->
+        <scene sceneID="NBE-iL-1IS">
+            <objects>
+                <collectionViewController id="mxT-hv-0Ch" customClass="PhotoCollectionViewController" customModule="PeekNPop" customModuleProvider="target" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="4Y1-xg-o9o">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="K5t-b5-509">
+                            <size key="itemSize" width="320" height="240"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="photoCell" id="Wi0-aK-UID" customClass="PhotoCollectionViewCell" customModule="PeekNPop" customModuleProvider="target">
+                                <rect key="frame" x="28" y="0.0" width="320" height="240"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="240"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="jzp-zb-zmq"/>
+                                    </subviews>
+                                </view>
+                                <constraints>
+                                    <constraint firstItem="jzp-zb-zmq" firstAttribute="top" secondItem="Wi0-aK-UID" secondAttribute="top" constant="5" id="M9k-td-8wE"/>
+                                    <constraint firstItem="jzp-zb-zmq" firstAttribute="leading" secondItem="Wi0-aK-UID" secondAttribute="leading" constant="5" id="WK2-oF-4tG"/>
+                                    <constraint firstAttribute="trailing" secondItem="jzp-zb-zmq" secondAttribute="trailing" constant="5" id="mAr-b5-RzI"/>
+                                    <constraint firstAttribute="bottom" secondItem="jzp-zb-zmq" secondAttribute="bottom" constant="5" id="vgC-RU-gKc"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="imageView" destination="jzp-zb-zmq" id="4uB-6z-fTs"/>
+                                    <segue destination="gam-vI-agI" kind="show" identifier="sgPhotoDetail" id="I91-9E-wIG">
+                                        <nil key="action"/>
+                                    </segue>
+                                </connections>
+                            </collectionViewCell>
+                        </cells>
+                        <connections>
+                            <outlet property="dataSource" destination="mxT-hv-0Ch" id="Eae-Kx-HIt"/>
+                            <outlet property="delegate" destination="mxT-hv-0Ch" id="WGB-cA-2M6"/>
+                        </connections>
+                    </collectionView>
+                    <navigationItem key="navigationItem" title="3D touch - Peek Pop Tutorial" id="6bl-he-Ep0"/>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PtA-wN-p0f" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="430" y="627"/>
+        </scene>
+        <!--Detail View Controller-->
+        <scene sceneID="pWE-Sw-FAb">
+            <objects>
+                <viewController storyboardIdentifier="DetailViewController" id="gam-vI-agI" customClass="DetailViewController" customModule="PeekNPop" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="W4t-zh-fgy"/>
+                        <viewControllerLayoutGuide type="bottom" id="88s-ua-btb"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="xCv-gq-QHr">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="f3h-xc-gbN">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="1bV-EP-1VP"/>
+                                    <constraint firstAttribute="height" constant="300" id="sQG-iU-6mN"/>
+                                </constraints>
+                            </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MNI-mz-RXO" userLabel="Caption container">
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Caption" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MiL-nH-73A">
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="MiL-nH-73A" firstAttribute="centerY" secondItem="MNI-mz-RXO" secondAttribute="centerY" id="1Ck-18-8na"/>
+                                    <constraint firstItem="MiL-nH-73A" firstAttribute="centerX" secondItem="MNI-mz-RXO" secondAttribute="centerX" id="UBW-Oz-p7l"/>
+                                    <constraint firstAttribute="height" constant="40" id="dy3-Oa-fua"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="f3h-xc-gbN" firstAttribute="centerY" secondItem="xCv-gq-QHr" secondAttribute="centerY" id="OwR-Ed-W4s"/>
+                            <constraint firstAttribute="trailing" secondItem="MNI-mz-RXO" secondAttribute="trailing" id="ae0-l6-nts"/>
+                            <constraint firstItem="f3h-xc-gbN" firstAttribute="top" secondItem="xCv-gq-QHr" secondAttribute="topMargin" id="hvz-Zz-SfH"/>
+                            <constraint firstItem="88s-ua-btb" firstAttribute="top" secondItem="MNI-mz-RXO" secondAttribute="bottom" id="kVq-k6-OZH"/>
+                            <constraint firstItem="f3h-xc-gbN" firstAttribute="centerX" secondItem="xCv-gq-QHr" secondAttribute="centerX" id="lJh-Mq-ygd"/>
+                            <constraint firstItem="MNI-mz-RXO" firstAttribute="leading" secondItem="xCv-gq-QHr" secondAttribute="leading" id="pZ5-H0-4xt"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="hvz-Zz-SfH"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <connections>
+                        <outlet property="captionLabel" destination="MiL-nH-73A" id="hix-2g-H8F"/>
+                        <outlet property="imageView" destination="f3h-xc-gbN" id="9oV-wY-isa"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pVn-f7-xIg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1242" y="627"/>
+        </scene>
+    </scenes>
+</document>
